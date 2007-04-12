@@ -1,0 +1,33 @@
+--- o.upp-2007.1/uppsrc/ide/Makefile	2007-01-31 21:01:14.000000000 +0100
++++ n.upp-2007.1/uppsrc/ide/Makefile	2007-04-12 22:48:38.540109469 +0200
+@@ -1,9 +1,13 @@
++libdir = /usr/lib
++CXX ?= c++
++RPMCXXFLAGS ?= -O2
++
+ UPPDIR1 = uppsrc/
+ 
+ UPPOUT = out/
+-CINC =  -I$(UPPDIR1) -I/usr/include/freetype2 -I/usr/include/gtk-2.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/lib/gtk-2.0/include -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/atk-1.0
++CINC =  -I$(UPPDIR1) -I/usr/include/freetype2 -I/usr/include/gtk-2.0 -I/usr/include/glib-2.0 -I$(libdir)/glib-2.0/include -I$(libdir)/gtk-2.0/include -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/atk-1.0
+ Macro =  -DflagGUI -DflagGCC -DflagSHARED -DflagLINUX
+-CC = c++ -c -O3 -ffunction-sections 
++CC = $(CXX) -c $(RPMCXXFLAGS) -ffunction-sections 
+ CFLAGS = $(CC) -x c
+ CPPFLAGS = $(CC) -x c++ 
+ LIBPATH =  -L"/usr/X11R6/lib"
+--- o.upp-2007.1/uppsrc/Web/TServ/Makefile	2007-01-22 22:30:21.000000000 +0100
++++ n.upp-2007.1/uppsrc/Web/TServ/Makefile	2007-04-12 22:49:30.412193029 +0200
+@@ -1,9 +1,11 @@
++CXX ?= c++
++RPMCXXFLAGS ?= -O2
+ UPPDIR1 = /upp/uppsrc/
+ 
+ UPPOUT = /uppout/
+ CINC =  -I$(UPPDIR1) -I/usr/include/freetype2
+ Macro =  -DflagGCC32 -DflagLINUX
+-CC = c++ -c -O1 -ffunction-sections
++CC = $(CXX) -c $(RPMCXXFLAGS) -ffunction-sections
+ CFLAGS = $(CC) -x c
+ CPPFLAGS = $(CC) -x c++
+ LIBPATH =  -L"/usr/X11R6/lib" -L"/usr/local/src/arptables-v0.0.3-2/"
