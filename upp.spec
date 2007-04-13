@@ -1,3 +1,7 @@
+#
+# NOTE: - sth is broken - examples don't link
+#	- uses compiler invokation not supported by ccache (building, IDE)
+#
 Summary:	Ultimate++ - a C++ cross-platform rapid application development suite
 #Summary(pl.UTF-8):	-
 Name:		upp
